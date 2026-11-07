@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>彩虹倒水 · 本地预览</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: linear-gradient(160deg, #1a1028 0%, #0b1220 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #ccc;
+    }
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #FF6B9D, #BA68C8, #4FC3F7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hint { font-size: 13px; color: #888; text-align: center; max-width: 420px; line-height: 1.5; }
+    #game {
+      width: min(100vw - 24px, 375px);
+      height: min((100vw - 24px) * 1.7787, 667px);
+      background: #FFE4F0;
+      border-radius: 16px;
+      box-shadow: 0 16px 48px rgba(186, 104, 200, 0.28);
+      touch-action: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>彩虹倒水（本地预览）</h1>
+    <p class="hint">先点有水的瓶子，再点目标瓶倒水。底部「+空杯 / 撤销」在浏览器里用确认框模拟激励广告。真机请用微信开发者工具打开项目根目录。</p>
+    <canvas id="game" width="750" height="1334"></canvas>
+  </div>
+  <script src="./preview/game.bundle.js"></script>
+  <script>
+    if (!window.GameMain || !window.GameMain.start) {
+      document.querySelector('.hint').textContent = '没有找到预览包。请先在项目根目录执行 npm run build。';
+    } else {
+      window.GameMain.start();
+    }
+  </script>
+</body>
+</html>

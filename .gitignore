@@ -1,0 +1,9 @@
+node_modules/
+js/
+preview/
+*.bak
+*.prev
+*.tsbuildinfo
+.DS_Store
+project.private.config.json
+uploads/

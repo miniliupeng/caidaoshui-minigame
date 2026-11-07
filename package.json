@@ -1,0 +1,22 @@
+{
+  "name": "caidaoshui-minigame",
+  "version": "0.3.0",
+  "description": "彩虹倒水 - 微信小游戏水排序",
+  "main": "game.js",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json && esbuild src/main.ts --bundle --format=iife --platform=browser --target=es2018 --outfile=preview/game.bundle.js --legal-comments=none",
+    "test": "npm run build && node --test tests/*.test.js",
+    "preview": "node scripts/preview-server.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "esbuild": "^0.25.5",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "ISC"
+}
